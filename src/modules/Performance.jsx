@@ -1,6 +1,7 @@
 import React from 'react';
 import Wilddog from 'wilddog/lib/wilddog-web';
 import {Link} from 'react-router';
+import Waterfall from './Waterfall';
 
 class Performance extends React.Component {
 
@@ -50,6 +51,7 @@ class Performance extends React.Component {
             <Link to={`/users/${uid}`}>{uid}</Link>
           </div>
         </div>
+        <Waterfall data={this.state.data}/>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>
     </div>

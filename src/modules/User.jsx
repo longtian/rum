@@ -90,7 +90,7 @@ class User extends React.Component {
           History
         </div>
         <ul className="list-group">
-          {Object.keys(this.state.data.history).map(k=> {
+          {this.state.data.history && Object.keys(this.state.data.history).map(k=> {
             let history = this.state.data.history[k];
             return <li className="list-group-item" key={k}>
               <span className="badge"> {moment(history.timestamp).fromNow()}</span>

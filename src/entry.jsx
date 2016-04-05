@@ -6,7 +6,7 @@ import Users from './modules/Users';
 import User from './modules/User';
 import Performance from './modules/Performance';
 import Performances from './modules/Performances';
-
+import Info from './modules/Info';
 import 'bootstrap/dist/css/bootstrap.css'
 
 var element = document.createElement("div");
@@ -20,6 +20,7 @@ render((
       <Route path="performances" component={Performances}>
         <Route path=":id" component={Performance}></Route>
       </Route>
+      <Route path="info" component={Info}></Route>
     </Route>
   </Router>
 ), element);

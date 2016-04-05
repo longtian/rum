@@ -42,6 +42,10 @@ users.onAuth((auth)=> {
     var cmd = users.root().child('cmd');
     cmd.on('value', snapshot=> {
 
+      if (!snapshot.val()) {
+        return;
+      }
+
       let {
         cmd,
         timestamp
@@ -71,9 +75,11 @@ users.onAuth((auth)=> {
       uid: auth.uid
     }))
 
-    performance && performance.getEntries && performance.getEntries().forEach((item, i)=> {
-      performanceRef.child(`entries/${i}`).set(saveObject(item))
-    });
+    $(window).load(()=> {
+      performance && performance.getEntries && performance.getEntries().forEach((item, i)=> {
+        performanceRef.child(`entries/${i}`).set(saveObject(item))
+      });
+    })
 
   }
 })

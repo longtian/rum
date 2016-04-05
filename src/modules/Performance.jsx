@@ -51,6 +51,7 @@ class Performance extends React.Component {
             <Link to={`/users/${uid}`}>{uid}</Link>
           </div>
         </div>
+        <img style={{maxHeight:500}} className="img-responsive" src={require('./timeline.png')}/>
         <Waterfall data={this.state.data}/>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>

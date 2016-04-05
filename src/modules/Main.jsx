@@ -15,6 +15,7 @@ class Main extends React.Component {
             <ul className="nav nav-pills">
               <li><Link to="/users">Users</Link></li>
               <li><Link to="/performances">Performance</Link></li>
+              <li><Link to="/info">Settings</Link></li>
             </ul>
           </div>
         </div>

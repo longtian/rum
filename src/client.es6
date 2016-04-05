@@ -1,6 +1,7 @@
 import Wilddog from 'wilddog/lib/wilddog-web';
 import $ from 'jquery';
 import is from 'is';
+import 'babel-polyfill';
 
 var users = window.root = new Wilddog(`${WILDDOG_APP}/users`);
 
@@ -55,12 +56,21 @@ users.onAuth((auth)=> {
 
       if (localTimestamp != timestamp) {
         localStorage.setItem('cmd.timestamp', timestamp);
-        var c = user.child(`commands`).push({
-          begin: timestamp,
-          end: Wilddog.ServerValue.TIMESTAMP,
-          result: "" + JSON.stringify(eval(cmd)),
-          cmd
-        })
+        try {
+          user.child(`commands`).push({
+            begin: timestamp,
+            end: Wilddog.ServerValue.TIMESTAMP,
+            result: "" + JSON.stringify(eval(cmd)),
+            cmd
+          })
+        } catch (e) {
+          user.child(`commands`).push({
+            begin: timestamp,
+            end: Wilddog.ServerValue.TIMESTAMP,
+            error: "" + JSON.stringify(e),
+            cmd
+          })
+        }
       }
     });
 

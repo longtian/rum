@@ -11,7 +11,7 @@ class Users extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = new Wilddog(`${WILDDOG_APP}/users`).limitToLast(20);
+    this.ref = new Wilddog(`${WILDDOG_APP}/users`);
     this.handleChange = snapshot=> {
       let users = [];
       snapshot.forEach(i=> {
@@ -21,7 +21,7 @@ class Users extends React.Component {
         users
       });
     }
-    this.ref.on('value', this.handleChange);
+    this.ref.limitToLast(20).on('value', this.handleChange);
   }
 
   componentWillUnmount() {

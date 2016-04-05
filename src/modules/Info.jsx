@@ -9,7 +9,12 @@ class Info extends React.Component {
 
   render() {
     return <div>
-      <button onClick={e=>{this.ref.remove()}} className="btn btn-danger">清空数据</button>
+      <div className="container">
+        <button onClick={e=>{this.ref.remove()}} className="btn btn-danger">清空数据</button>
+        <h4>Dashboard</h4>
+        <a href={WILDDOG_APP}>{WILDDOG_APP}</a>
+      </div>
+
     </div>
   }
 }

@@ -50,14 +50,27 @@ class User extends React.Component {
       <div className="well well-sm">{this.props.params.id}</div>
 
       <div className="panel panel-default">
-        <div className="panel-heading">navigator</div>
+        <div className="panel-heading">
+          <i className="glyphicon glyphicon-asterisk"></i>
+          Browser
+        </div>
         <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data.navigator, null, 2)}</pre>
+          <div className="row">
+            <div className="col-lg-8">
+              <pre>{JSON.stringify(this.state.data.navigator, null, 2)}</pre>
+            </div>
+            <div className="col-lg-4">
+              <pre>{JSON.stringify(this.state.data.screen, null, 2)}</pre>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="panel panel-default">
-        <div className="panel-heading">position</div>
+        <div className="panel-heading">
+          <i className="glyphicon glyphicon-globe"></i>
+          Position
+        </div>
         <Map ipapi={this.state.data.ipapi}/>
         <div className="panel-body">
           <div className="row">
@@ -68,14 +81,14 @@ class User extends React.Component {
               <pre>{JSON.stringify(this.state.data.sohu, null, 2)}</pre>
             </div>
           </div>
-
-
         </div>
       </div>
 
-
       <div className="panel panel-default">
-        <div className="panel-heading">history</div>
+        <div className="panel-heading">
+          <i className="glyphicon glyphicon-time"></i>
+          History
+        </div>
         <ul className="list-group">
           {Object.keys(this.state.data.history).map(k=> {
             let history = this.state.data.history[k];
@@ -88,14 +101,10 @@ class User extends React.Component {
       </div>
 
       <div className="panel panel-default">
-        <div className="panel-heading">screen</div>
-        <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data.screen, null, 2)}</pre>
+        <div className="panel-heading">
+          <i className="glyphicon glyphicon-scale"></i>
+          Commands
         </div>
-      </div>
-
-      <div className="panel panel-default">
-        <div className="panel-heading">commands</div>
         <div className="panel-body">
           <table className="table table-striped">
             <thead>
@@ -122,8 +131,6 @@ class User extends React.Component {
             }
             </tbody>
           </table>
-
-
           <pre>{JSON.stringify(this.state.data.commands, null, 2)}</pre>
         </div>
       </div>

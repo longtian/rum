@@ -4,8 +4,8 @@
   "description": "Real user monitoring",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -w -d",
-    "build": "rimraf dist && webpack -p"
+    "dev": "AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum.wilddogio.com webpack -w -d",
+    "build": "rimraf dist && AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum.wilddogio.com webpack -p"
   },
   "repository": {
     "type": "git",

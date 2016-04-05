@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack')
+const DefinePlugin = webpack.DefinePlugin;
 
 module.exports = {
   entry: {
@@ -28,5 +30,11 @@ module.exports = {
   },
   resolve: {
     extensions: ["", ".js", ".es6", ".jsx"]
-  }
+  },
+  plugins: [
+    new DefinePlugin({
+      WILDDOG_APP: JSON.stringify(process.env.WILDDOG_APP),
+      AMAP_KEY: JSON.stringify(process.env.AMAP_KEY),
+    })
+  ]
 }

@@ -13,7 +13,7 @@ class Performances extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = new Wilddog(`https://rum.wilddogio.com/performance`).limitToLast(this.state.length);
+    this.ref = new Wilddog(`${WILDDOG_APP}/performance`).limitToLast(this.state.length);
     this.handleChange = snapshot=> {
       let list = [];
       snapshot.forEach(item=> {

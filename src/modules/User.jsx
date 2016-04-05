@@ -23,7 +23,7 @@ class User extends React.Component {
   }
 
   fetch(id) {
-    this.ref = new Wilddog(`https://rum.wilddogio.com/users/${id}`);
+    this.ref = new Wilddog(`${WILDDOG_APP}/users/${id}`);
     this.ref.on('value', this.handleValueChange);
   }
 

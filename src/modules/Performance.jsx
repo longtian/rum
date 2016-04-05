@@ -16,7 +16,7 @@ class Performance extends React.Component {
   }
 
   fetch(id) {
-    let ref = this.ref = new Wilddog(`https://rum.wilddogio.com/performance/${id}`);
+    let ref = this.ref = new Wilddog(`${WILDDOG_APP}/performance/${id}`);
     ref.once('value', snapshot=> {
       this.setState({
         data: snapshot.val()

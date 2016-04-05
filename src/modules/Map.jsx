@@ -1,11 +1,15 @@
 import React from 'react';
 import {findDOMNode} from 'react-dom';
 import './map.css';
+import $ from 'jquery';
+
+$.getScript(`http://webapi.amap.com/maps?v=1.3&key=${AMAP_KEY}`)
 
 class Map extends React.Component {
 
   componentDidMount() {
 
+    // @todo resolve the async dependency
     this.map = new AMap.Map(findDOMNode(this), {
       zoom: 2
     });
@@ -18,7 +22,7 @@ class Map extends React.Component {
   }
 
   adjustMarkers(props = this.props) {
-    if (props.ipapi) {
+    if (props.ipapi && this.map) {
 
       let {
         lat,
@@ -35,7 +39,9 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div className="amap-container">222</div>
+    return <div className="amap-container">
+      <a href="http://lbs.amap.com/getting-started/map/">http://lbs.amap.com/getting-started/map/</a>
+    </div>
   }
 }
 

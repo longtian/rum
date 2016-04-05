@@ -2,7 +2,7 @@ import Wilddog from 'wilddog/lib/wilddog-web';
 import $ from 'jquery';
 import is from 'is';
 
-var users = window.root = new Wilddog("https://rum.wilddogio.com/users");
+var users = window.root = new Wilddog(`${WILDDOG_APP}/users`);
 
 const saveObject = (obj)=> {
   let toBeSaved = {};

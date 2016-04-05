@@ -2,6 +2,7 @@ import React from 'react';
 import Wilddog from 'wilddog/lib/wilddog-web';
 import {Link} from 'react-router';
 import moment from 'moment';
+import Map from './Map.jsx';
 
 class User extends React.Component {
 
@@ -13,13 +14,27 @@ class User extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = new Wilddog(`https://rum.wilddogio.com/users/${this.props.params.id}`);
-    this.ref.on('value', snapshot=> {
+    this.handleValueChange = (snapshot)=> {
       this.setState({
         data: snapshot.val()
       })
-    })
+    };
+    this.fetch(this.props.params.id);
   }
+
+  fetch(id) {
+    this.ref = new Wilddog(`https://rum.wilddogio.com/users/${id}`);
+    this.ref.on('value', this.handleValueChange);
+  }
+
+  componentWillReceiveProps({ params }) {
+    let {
+      id
+    } = params;
+    this.ref.off('value', this.handleValueChange);
+    this.fetch(id);
+  }
+
 
   render() {
 
@@ -42,11 +57,22 @@ class User extends React.Component {
       </div>
 
       <div className="panel panel-default">
-        <div className="panel-heading">commands</div>
+        <div className="panel-heading">position</div>
+        <Map ipapi={this.state.data.ipapi}/>
         <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data.commands, null, 2)}</pre>
+          <div className="row">
+            <div className="col-lg-6">
+              <pre>{JSON.stringify(this.state.data.ipapi, null, 2)}</pre>
+            </div>
+            <div className="col-lg-6">
+              <pre>{JSON.stringify(this.state.data.sohu, null, 2)}</pre>
+            </div>
+          </div>
+
+
         </div>
       </div>
+
 
       <div className="panel panel-default">
         <div className="panel-heading">history</div>
@@ -69,29 +95,36 @@ class User extends React.Component {
       </div>
 
       <div className="panel panel-default">
-        <div className="panel-heading">position</div>
+        <div className="panel-heading">commands</div>
         <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data.ipapi, null, 2)}</pre>
-          <pre>{JSON.stringify(this.state.data.sohu, null, 2)}</pre>
-        </div>
-      </div>
+          <table className="table table-striped">
+            <thead>
+            <tr>
+              <th>Executed</th>
+              <th>Latency</th>
+              <th>CMD</th>
+              <th>Result</th>
+            </tr>
+            </thead>
+            <tbody>
+            {
+              this.state.data.commands && Object.keys(this.state.data.commands).map(k=> {
+                let cmd = this.state.data.commands[k];
+                return (
+                  <tr key={k}>
+                    <td>{moment(cmd.begin).fromNow()}</td>
+                    <td>{cmd.end - cmd.begin}</td>
+                    <td>{cmd.cmd}</td>
+                    <td>{cmd.result}</td>
+                  </tr>
+                )
+              })
+            }
+            </tbody>
+          </table>
 
-      <div className="panel panel-default">
-        <div className="panel-heading">location</div>
-        <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data.location, null, 2)}</pre>
-        </div>
-      </div>
 
-      <div className="panel panel-default">
-        <div className="panel-heading"></div>
-        <div className="panel-body"></div>
-      </div>
-
-      <div className="panel panel-default">
-        <div className="panel-heading">原始数据</div>
-        <div className="panel-body">
-          <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+          <pre>{JSON.stringify(this.state.data.commands, null, 2)}</pre>
         </div>
       </div>
     </div>

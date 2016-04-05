@@ -12,7 +12,7 @@ class Users extends React.Component {
 
   componentDidMount() {
     let ref = this.ref = new Wilddog('https://rum.wilddogio.com/users');
-    ref.on('value', snapshot=> {
+    ref.limitToLast(20).on('value', snapshot=> {
       let users = [];
       snapshot.forEach(i=> {
         users.push(i.key())

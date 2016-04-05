@@ -17,6 +17,10 @@ class Map extends React.Component {
     this.adjustMarkers();
   }
 
+  componentWillUnmount() {
+    this.map.destroy();
+  }
+
   componentWillReceiveProps(props) {
     this.adjustMarkers(props);
   }

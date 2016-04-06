@@ -1,22 +1,54 @@
 # rum
-Real user monitoring
+Realtime real user monitoring built on Wilddog Service
 
+![](./docs/screenshot.png)
 
-## IP-Location API:
+## Prerequisite
 
-**JSON**
-http://pv.sohu.com/cityjson
-http://pv.sohu.com/cityjson?ie=utf-8
+You need to register for following two services
 
-**JSONP**
-http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&callback=s
-http://ip-api.com/json?callback=yourfunction
-
-## Map:
-http://lbs.amap.com/
+- `AMAP_KEY` from [AMAP](http://lbs.amap.com/)
+- `WILDDOG_APP` from [Wilddog](https://www.wilddog.com/)
 
 ## Usage
 
+### Fork the code
+
 ```
-<script src='http://7xsmxh.com2.z0.glb.clouddn.com/client.js'></script>
+git clone  git@github.com:wyvernnot/rum.git
+cd rum
+npm install
 ```
+
+### Build the files for client and dashboard
+
+```
+AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum.wilddogio.com webpack -p
+```
+
+### Host static files somewhere
+
+### Include scripts
+
+**Client**
+
+```<script src="PATH/client.js"></script>```
+
+**Dashboard**
+
+```<script src="PATH/bundle.js"></script>```
+
+## Reference
+
+### How to get location via IP ?
+
+**JSON**
+[ ] http://pv.sohu.com/cityjson?ie=utf-8
+[ ] http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js
+
+**JSONP**
+[x] http://ip-api.com/json?callback=yourfunction
+
+## LICENSE
+
+GPL-3.0

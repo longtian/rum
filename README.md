@@ -1,17 +1,20 @@
 # rum
-Realtime real user monitoring built on Wilddog Service
+Realtime real user monitoring built on Wilddog BaaS
 
 ![](./docs/screenshot.png)
+
+![](./docs/waterfall.png)
 
 ## Features
 
 - [x] Realtime user list
-- [x] Anonymously client
-- [x] Show position in map
-- [x] Send JS to eval to all browsers
+- [x] Anonymous client
+- [x] Show client position in map
+- [x] Send JavaScript to all clients
 - [x] Visit history
 - [x] Performance.timing waterfall
 - [x] Clear data
+
 
 ## Prerequisite
 
@@ -19,6 +22,10 @@ You need to register for following two services:
 
 - `AMAP_KEY` from [AMAP](http://lbs.amap.com/)
 - `WILDDOG_APP` from [Wilddog](https://www.wilddog.com/)
+
+The anonymous loggin in wilddog must be turned on
+
+![](./docs/wilddog.png)
 
 ## Usage
 

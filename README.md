@@ -3,9 +3,19 @@ Realtime real user monitoring built on Wilddog Service
 
 ![](./docs/screenshot.png)
 
+## Features
+
+- [x] Realtime user list
+- [x] Anonymously client
+- [x] Show position in map
+- [x] Send JS to eval to all browsers
+- [x] Visit history
+- [x] Performance.timing waterfall
+- [x] Clear data
+
 ## Prerequisite
 
-You need to register for following two services
+You need to register for following two services:
 
 - `AMAP_KEY` from [AMAP](http://lbs.amap.com/)
 - `WILDDOG_APP` from [Wilddog](https://www.wilddog.com/)
@@ -43,11 +53,13 @@ AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum.wilddogio.com 
 ### How to get location via IP ?
 
 **JSON**
-[ ] http://pv.sohu.com/cityjson?ie=utf-8
-[ ] http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js
+
+- [ ] http://pv.sohu.com/cityjson?ie=utf-8
+- [ ] http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js
 
 **JSONP**
-[x] http://ip-api.com/json?callback=yourfunction
+
+- [x] http://ip-api.com/json?callback=yourfunction
 
 ## LICENSE
 

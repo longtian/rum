@@ -1,6 +1,7 @@
 import Wilddog from 'wilddog/lib/wilddog-web';
 import $ from 'jquery';
 import is from 'is';
+import uaParser from 'ua-parser-js';
 import 'babel-polyfill';
 
 var users = window.root = new Wilddog(`${WILDDOG_APP}/users`);
@@ -21,11 +22,13 @@ const saveObject = (obj)=> {
 users.onAuth((auth)=> {
   if (auth) {
     var user = users.child(auth.uid);
+
     user.update({
       ua: navigator.userAgent,
       navigator: saveObject(navigator),
       screen: saveObject(window.screen),
-      location: saveObject(window.location)
+      location: saveObject(window.location),
+      uap: saveObject(uaParser())
     });
 
     $.getJSON("http://ip-api.com/json?callback=?", function (json) {

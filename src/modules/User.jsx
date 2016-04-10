@@ -56,10 +56,13 @@ class User extends React.Component {
         </div>
         <div className="panel-body">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-3">
+              <pre>{JSON.stringify(this.state.data.uap, null, 2)}</pre>
+            </div>
+            <div className="col-lg-6">
               <pre>{JSON.stringify(this.state.data.navigator, null, 2)}</pre>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-3">
               <pre>{JSON.stringify(this.state.data.screen, null, 2)}</pre>
             </div>
           </div>

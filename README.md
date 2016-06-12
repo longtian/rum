@@ -1,72 +1,22 @@
 # rum
-Realtime real user monitoring built on Wilddog BaaS
+基于 `野狗` 开发一个真实用户体验收集程序。
 
 ![](./docs/screenshot.png)
 
 ![](./docs/waterfall.png)
 
-## Features
+## 功能
 
-- [x] Realtime user list
-- [x] Anonymous client
-- [x] Show client position in map
-- [x] Send JavaScript to all clients
-- [x] Visit history
-- [x] Performance.timing waterfall
-- [x] Clear data
+- [x] 在线用户列表
+- [x] 匿名统计
+- [x] 在地图上显示客户端的位置
+- [x] 把要执行的代码发送到所有的客户端
+- [x] 记录浏览历史
+- [x] 前端性能的瀑布图
 
+## 安装
 
-## Prerequisite
-
-You need to register for following two services:
-
-- `AMAP_KEY` from [AMAP](http://lbs.amap.com/)
-- `WILDDOG_APP` from [Wilddog](https://www.wilddog.com/)
-
-The anonymous loggin in wilddog must be turned on
-
-![](./docs/wilddog.png)
-
-## Usage
-
-### Fork the code
-
-```
-git clone  git@github.com:wyvernnot/rum.git
-cd rum
-npm install
-```
-
-### Build the files for client and dashboard
-
-```
-AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum.wilddogio.com webpack -p
-```
-
-### Host static files somewhere
-
-### Include scripts
-
-**Client**
-
-```<script src="PATH/client.js"></script>```
-
-**Dashboard**
-
-```<script src="PATH/bundle.js"></script>```
-
-## Reference
-
-### How to get location via IP ?
-
-**JSON**
-
-- [ ] http://pv.sohu.com/cityjson?ie=utf-8
-- [ ] http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js
-
-**JSONP**
-
-- [x] http://ip-api.com/json?callback=yourfunction
+[安装步骤](https://github.com/wyvernnot/rum/wiki/%E5%AE%89%E8%A3%85%E9%9C%80%E6%B1%82)
 
 ## LICENSE
 

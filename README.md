@@ -103,23 +103,23 @@
 
 ![](./docs/control.png)
 
-点击 **Send**, 事先嵌入到网页里的监控程序就会上报机器的 `pixelRatio`，整个过程不需要用户的干预。
+点击 **Send**, 事先嵌入到网页里的监控程序就会上报机器的 `pixelRatio`，整个过程不需要用户的干预，返回如下：
 
 ![](./docs/command.png)
 
 ## 实时定位
 
-要做到实时定位，其实只需要 `问` 对问题就行：
+要做到实时定位，其实只需要 **问** 对问题就行：
 
 ```
 navigator.geolocation.getCurrentPosition(function(e){alert(JSON.stringify(e.coords))})
 ```
 
-（好像暴露了什么）
-
 ![](./docs/position.png)
 
-## 应用性能
+（哈哈，好像暴露了什么）
+
+## 前端性能统计
 
 随着标准的渐渐流行，很多现代浏览器都已经提供了很好的接口获得性能数据。
 
@@ -131,7 +131,8 @@ performance.timing
 performance.getEntries()
 ```
 
-通过在客户端采集这些数据，并在服务器端通过可视化的方式展示，能够非常精确的看到应用加载的各个时间点。
+通过在客户端采集这些数据，取得网页各种资源的加载耗时，传到 `野狗` 后端。然后在服务器端通过可视化的方式实时地展示
+出来，能够非常精确的看到某位用户打开应用的各个时间点。
 
 ![](./docs/timeline.png)
 

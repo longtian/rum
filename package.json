@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum-dev.wilddogio.com webpack -w -d",
-    "build": "rimraf dist && AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum-dev.wilddogio.com webpack -p"
+    "build": "rimraf dist && AMAP_KEY=938bcc87bfbd6aaeff217efae48f450a WILDDOG_APP=https://rum-dev.wilddogio.com webpack -p",
+    "start":"http-server -o"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "bootstrap": "^3.3.6",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
+    "http-server": "^0.9.0",
     "is": "^3.1.0",
     "jquery": "^2.2.2",
     "moment": "^2.12.0",
